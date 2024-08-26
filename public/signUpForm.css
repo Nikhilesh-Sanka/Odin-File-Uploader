@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h2 {
+  text-align: center;
+  margin: 50px 0;
+}
+form > * {
+  display: block;
+  width: max-content;
+  margin: 20px auto;
+}
+form button {
+  height: 35px;
+  width: 75px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.errors {
+  padding: 10px;
+}
+.errors p {
+  text-align: center;
+  color: red;
+  margin: 10px;
+}

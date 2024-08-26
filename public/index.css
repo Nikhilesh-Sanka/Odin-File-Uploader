@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+}
+body {
+  background-color: whitesmoke;
+}
+.welcome {
+  margin: 30px 0;
+  text-align: center;
+}
+button:hover {
+  cursor: pointer;
+}
+/*Side bar styling */
+.side-bar {
+  position: fixed;
+  left: 0px;
+  top: 75px;
+  height: calc(100vh - 75px);
+  width: 250px;
+  background-color: #334155;
+  color: white;
+  overflow: scroll;
+}
+.side-bar > * {
+  margin: 10px auto;
+  width: 90%;
+}
+.side-bar .create-folder-btn {
+  width: max-content;
+  display: block;
+}
+.side-bar .create-folder-btn button {
+  width: 80px;
+  height: 35px;
+  color: black;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+}
+.side-bar .folder {
+  background-color: white;
+  height: 90px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: 10px;
+  place-items: center;
+  margin: 10px auto;
+}
+.folder > *:nth-child(1) {
+  grid-area: 1/1 / span 1 / span 2;
+}
+.folder > *:nth-child(2) button {
+  grid-area: 2/1 / span 1 / span 1;
+  height: 30px;
+  width: 70px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.folder > *:nth-child(3) button {
+  grid-area: 2 / 2 / span 1 / span 1;
+  height: 30px;
+  width: 70px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.side-bar form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 10px;
+  place-items: center;
+}
+.side-bar form button {
+  width: 70px;
+  height: 35px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.side-bar form > *:nth-child(1) {
+  grid-area: 1/1 / span 1 / span 2;
+}
+.side-bar form > *:nth-child(2) button {
+  grid-area: 2/1 / span 1 / span 1;
+}
+.side-bar form > *:nth-child(3) button {
+  grid-area: 2/2 / span 1 / span 1;
+}
+/*side bar styling */
+
+/* errors styling */
+.errors {
+  width: calc(100% - 20px);
+  padding: 10px;
+  color: red;
+}
+.errors p {
+  margin: 10px 0;
+  text-align: center;
+}
+/* errors styling */
+
+/* Main section styling */
+.main {
+  width: calc(100% - 250px);
+  position: fixed;
+  top: 75px;
+  left: 250px;
+}
+.main h2 {
+  margin: 40px 0;
+  text-align: center;
+}
+.main .create-file-btn {
+  width: 75px;
+  height: 35px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  margin: 20px auto;
+}
+.main .file {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: center;
+  width: min(500px, calc(100% - 20px));
+  margin: 20px auto;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+}
+.main .file > *:nth-child(1) {
+  grid-area: 1/1 / span 1 / span 2;
+  font-size: 1.2rem;
+}
+.main .file > *:nth-child(2) button {
+  grid-area: 2/1 / span 1 / span 1;
+  width: 70px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border: none;
+}
+.main .file > *:nth-child(3) button {
+  grid-area: 2/2 / span 1 / span 1;
+  width: 70px;
+  height: 35px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.main .create-file-heading {
+  margin: 40px 0;
+  text-align: center;
+}
+.main form > * {
+  display: block;
+  margin: 10px auto;
+  width: max-content;
+}
+.main form button {
+  height: 35px;
+  width: 75px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+}
+/* Main section styling */
+
+/* making the design responsive*/
+
+@media (max-width: 570px) {
+  .side-bar {
+    position: static;
+    height: 200px;
+    width: 100%;
+  }
+  .main {
+    position: static;
+    width: 100%;
+  }
+}

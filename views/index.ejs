@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Uploader</title>
+    <link rel="stylesheet" href="/static/index.css" />
+    <style></style>
+  </head>
+  <body>
+    <%-include("./components/header.ejs")%> <%if(locals.user===undefined){%>
+    <%-include("./components/welcome.ejs")%> <%} else{%>
+    <div class="body">
+      <%-include("./components/side-bar.ejs", {folders:locals.user.folders,
+      isFolderBeingAdded:locals.isFolderBeingAdded,
+      isFolderBeingEdited:locals.isFolderBeingEdited, folder:locals.folder,
+      addFolderErrors:locals.addFolderErrors, userId:locals.user.id})%>
+      <%-include("./components/main.ejs",{isFolderOpen:locals.isFolderOpen,
+      folder:locals.folder, isFileBeingCreated:locals.isFileBeingCreated,
+      addFileErrors:locals.addFileErrors })%>
+    </div>
+    <%}%>
+  </body>
+</html>

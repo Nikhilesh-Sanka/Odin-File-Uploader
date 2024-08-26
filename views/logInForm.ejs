@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>log in</title>
+    <link rel="stylesheet" href="/static/logInForm.css" />
+  </head>
+  <body>
+    <%-include("./components/header.ejs")%>
+    <div class="log-in-form">
+      <h2>Log In Form</h2>
+      <form action="/log-in" method="POST">
+        <label>Username: <br /><input name="username" /></label>
+        <label>Password: <br /><input name="password" /></label>
+        <button type="submit">log-in</button>
+        <a href="/"><button type="button">close</button></a>
+      </form>
+      <%if(locals.loginFailed){%>
+      <div class="errors">
+        <p>invalid user name / password</p>
+      </div>
+      <%}%>
+    </div>
+  </body>
+</html>

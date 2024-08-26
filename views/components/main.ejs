@@ -1,0 +1,42 @@
+<div class="main">
+  <%if(locals.isFileBeingCreated){%>
+  <h2><%=locals.folder.name%></h2>
+  <h3 class="create-file-heading">Create File</h3>
+  <form
+    action="/folder/createFile?folderId=<%=locals.folder.id%>"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <label>filename: <br /><input name="filename" /></label>
+    <label>file: <input type="file" name="file" required /></label>
+    <button>submit</button>
+    <a href="/folder?folderId=<%=locals.folder.id%>"
+      ><button type="button">close</button></a
+    >
+  </form>
+  <%if(locals.addFileErrors){%>
+  <div class="add-file-errors errors">
+    <%for(let error of locals.addFileErrors){%>
+    <p><%=error.msg%></p>
+    <%}%>
+  </div>
+  <%}%> <%} else if(locals.isFolderOpen){%>
+  <h2><%=locals.folder.name%></h2>
+  <a href="/folder/createFile?folderId=<%=locals.folder.id%>"
+    ><button class="create-file-btn">create file</button></a
+  >
+  <div class="files">
+    <%for(let file of locals.folder.files){%>
+    <div class="file">
+      <p><%=file.name%></p>
+      <a href="/folder/downloadFile?fileId=<%=file.id%>"
+        ><button>download</button></a
+      >
+      <a href="/folder/deleteFile?fileId=<%=file.id%>"
+        ><button>delete</button></a
+      >
+    </div>
+    <%}%>
+  </div>
+  <%}%>
+</div>

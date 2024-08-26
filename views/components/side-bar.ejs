@@ -1,0 +1,45 @@
+<div class="side-bar">
+  <a href="/createFolder" class="create-folder-btn"
+    ><button>create folder</button></a
+  >
+  <%if(locals.isFolderBeingAdded){%>
+  <form action="/createFolder" method="POST" class="add-folder-form">
+    <label>Folder Name: <br /><input name="folder-name" /></label>
+    <button>add folder</button>
+    <a href="/"><button type="button">close</button></a>
+  </form>
+  <%if(locals.addFolderErrors){%>
+  <div class="add-folder-errors errors">
+    <%for(let error of locals.addFolderErrors){%>
+    <p><%=error.msg%></p>
+    <%}%>
+  </div>
+  <%}%> <%}%> <%if(locals.isFolderBeingEdited){%>
+  <form action="/editFolder?folderId=<%=folder.id%>" method="POST">
+    <label
+      >Folder Name: <br /><input
+        name="folder-name"
+        value="<%=locals.folder.name%>"
+    /></label>
+    <button>submit</button>
+    <a href="/"><button>close</button></a>
+  </form>
+  <% if(locals.editFolderErrors){%>
+  <div class="edit-folder-errors errors">
+    <%for(let error of locals.editFolderErrors){%>
+    <p><%=error.msg%></p>
+    <%}%>
+  </div>
+  <%}%> <%}%>
+  <div class="side-bar-folders">
+    <%if(locals.folders){%> <%for(let folder of locals.folders){%>
+    <div class="folder">
+      <a href="/folder?folderId=<%=folder.id%>"><p><%=folder.name%></p></a>
+      <a href="/editFolder?folderId=<%=folder.id%>"><button>edit</button></a>
+      <a href="/deleteFolder?folderId=<%=folder.id%>"
+        ><button>delete</button></a
+      >
+    </div>
+    <%}%> <%}%>
+  </div>
+</div>
